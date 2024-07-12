@@ -10,7 +10,7 @@ import { RowItemComponent } from '../row-item/row-item.component';
 @Component({
   selector: 'app-factura',
   standalone: true,
-  imports: [FacturaViewComponent, ClientViewComponent,CompanyViewComponent,ListItemsComponent,RowItemComponent],
+  imports: [FacturaViewComponent, ClientViewComponent,CompanyViewComponent,ListItemsComponent],
   templateUrl: './factura.component.html',
   styleUrl: './factura.component.css'
 })
@@ -29,7 +29,7 @@ export class FacturaComponent implements OnInit{
 
   ngOnInit(): void {
     //definimos la factura en nuestr componente
-    this.factura = this.service.getFActura();
+    this.factura = this.service.getFactura();
   }
   
 }

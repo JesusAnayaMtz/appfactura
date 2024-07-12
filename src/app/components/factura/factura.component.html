@@ -4,56 +4,18 @@
             <h2>Ejemplo Factura</h2>
         </div>
         <div class="card-body">
-            <div>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    Id: {{factura.id}}
-                </li>
-                <li class="list-group-item">
-                    Nombre: {{factura.name}}
-                </li>
-            </ul>
-        </div>
+            <!-- Pasamos como componente al componente padre el encabezado de la factura us id y su nombre-->
+            <app-factura-view [id]="factura.id" [name]="factura.name"></app-factura-view>
         <div class="row my-3">
         <div class="col">
-            <h3>Datos del cliente</h3>
-            <ul class="list-group">
-                <li class="list-group-item">{{factura.client.name}} {{factura.client.lastName}}</li>
-                <li class="list-group-item">{{factura.client.address.country}} {{factura.client.address.city}}</li>
-                <li class="list-group-item">{{factura.client.address.street}} {{factura.client.address.number}}</li> 
-            </ul>
+            <!-- Pasamos como componente al componente padre los datos del cliente sus datos que tenemos en el html hijo-->
+            <app-client-view [client]="factura.client"></app-client-view>
         </div>
         <div class="col">
-            <h3>Datos de la empresa</h3>
-            <ul class="list-group">
-                <li class="list-group-item">{{factura.company.name}}</li>
-                <li class="list-group-item">{{factura.company.fiscalNumber}}</li>
-            </ul>
+            <app-company-view [company]="factura.company"></app-company-view>
         </div>
     </div>
-        <div class="row my-2">
-            <h4>Detalle productos</h4>
-            <table class="table table-striped table-hover">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Id</th>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (item of factura.items; track $index) {
-                        <tr>
-                            <td>{{item.id}}</td>
-                            <td>{{item.product}}</td>
-                            <td>{{item.price}}</td>
-                            <td>{{item.quantity}}</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+    <app-list-items [items]="factura.items"></app-list-items>
     </div>
     </div>
 </div>

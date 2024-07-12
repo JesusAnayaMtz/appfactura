@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-factura-view',
@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './factura-view.component.css'
 })
 export class FacturaViewComponent {
+
+  @Input() name!:string;
+  @Input() id!: number;
 
 }
