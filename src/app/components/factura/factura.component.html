@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="card">
+        <h2>Ejemplo Factura</h2>
+        <div>
+            <ul>
+                <li>
+                    Id: {{factura.id}}
+                </li>
+                <li>
+                    Nombre: {{factura.name}}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h3>Datos del cliente</h3>
+            <ul>
+                <li>{{factura.client.name}} {{factura.client.lastName}}</li>
+                <li>{{factura.client.address.country}} {{factura.client.address.city}}</li>
+                <li>{{factura.client.address.street}} {{factura.client.address.number}}</li> 
+            </ul>
+        </div>
+        <div>
+            <h3>Datos de la empresa</h3>
+            <ul>
+                <li>{{factura.company.name}}</li>
+                <li>{{factura.company.fiscalNumber}}</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Detalle productos</h4>
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of factura.items; track $index) {
+                        <tr>
+                            <td>{{item.id}}</td>
+                            <td>{{item.product}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.quantity}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
