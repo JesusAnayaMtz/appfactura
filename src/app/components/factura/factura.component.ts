@@ -6,11 +6,13 @@ import { ClientViewComponent } from '../client-view/client-view.component';
 import { CompanyViewComponent } from '../company-view/company-view.component';
 import { ListItemsComponent } from '../list-items/list-items.component';
 import { RowItemComponent } from '../row-item/row-item.component';
+import { TotalComponent } from '../total/total.component';
+import { Item } from '../../models/item';
 
 @Component({
   selector: 'app-factura',
   standalone: true,
-  imports: [FacturaViewComponent, ClientViewComponent,CompanyViewComponent,ListItemsComponent],
+  imports: [FacturaViewComponent, ClientViewComponent,CompanyViewComponent,ListItemsComponent, TotalComponent],
   templateUrl: './factura.component.html',
   styleUrl: './factura.component.css'
 })
@@ -30,6 +32,10 @@ export class FacturaComponent implements OnInit{
   ngOnInit(): void {
     //definimos la factura en nuestr componente
     this.factura = this.service.getFactura();
+  }
+
+  removeItem(id: number){
+    this.factura.items = this.factura.items.filter(Item => Item.id != id);
   }
   
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Item } from '../../models/item';
 import { RowItemComponent } from '../row-item/row-item.component';
 
@@ -13,5 +13,11 @@ export class ListItemsComponent {
 
   //se crea un arreglo de los items que se agregaran a la factura
   @Input() items: Item[] = [];
+
+  @Output() removeEventEmmiter: EventEmitter<number> = new EventEmitter();
+
+  onRemove(id: number){
+
+  }
 
 }
